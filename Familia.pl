@@ -37,10 +37,11 @@ hijode(A,B) :- padrede(B,A).
 hermanode(A,B) :- padrede(C,A), padrede(C,B), A \== B.
 abuelode(A,B) :- padrede(A,C), padrede(C,B).
 bisabuelo(A,B) :- padrede(A,C), padrede(C,D), padrede(D,B).
-nietode(A,B) :- padrede(C,A), padrede(B,C).
+nietode(A,B) :- abuelode(B,C).
 tiode(A,B) :- hermanode(A,C), padrede(C,B).
 sobrinode(A,B) :- padrede(C,A), hermanode(C,B).
 primode(A,B) :- tiode(C,A), padrede(C,B).
+casadocon(A,B) :- padrede(A,C), padrede(B,C), A \== B.
 
 
 familiarde(A,B) :- padrede(A,B).
